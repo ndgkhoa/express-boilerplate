@@ -10,7 +10,7 @@ export const getRolePermissions = async (req: Request, res: Response) => {
 }
 
 export const createRolePermissions = async (req: Request, res: Response) => {
-  const newRolePermissions = await rolePermissionsService.createPermissionsForRole(req.params.roleId, req.body)
+  const newRolePermissions = await rolePermissionsService.createRolePermissions(req.params.roleId, req.body)
   sendResponse(res, HttpStatusCode.OK, newRolePermissions, Message.CREATED)
 }
 

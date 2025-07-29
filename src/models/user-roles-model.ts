@@ -14,4 +14,4 @@ userRolesSchema.index({ UserId: 1, RoleId: 1 }, { unique: true })
 
 userRolesSchema.plugin(toJSON)
 
-export const UserRoles = mongoose.model('UserRoles', userRolesSchema)
+export const UserRoles = mongoose.model('UserRoles', userRolesSchema, 'user-roles')

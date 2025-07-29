@@ -14,7 +14,7 @@ const envSchema = z.object({
   JWT_REFRESH_SECRET: z.string().min(32),
   JWT_ISSUER: z.string().default('https://localhost:3001/'),
   JWT_AUDIENCE: z.enum(['web-app', 'mobile-app']).default('web-app'),
-  JWT_ACCESS_EXP: z.string().default('2h'),
+  JWT_ACCESS_EXP: z.string().default('6h'),
   JWT_REFRESH_EXP: z.string().default('7d'),
   MONGO_URI: z.string().url(),
   CLOUDINARY_CLOUD_NAME: z.string(),

@@ -59,9 +59,9 @@ export const getInfoMine = async (req: Request, res: Response) => {
   const user = await userService.getUserById(token.sub)
   const userRoles = await userRolesService.getRolesByUserId(user.id)
   const roleIds = userRoles.map((ur) => ur.RoleId)
-  const permissions = await Promise.all(roleIds.map((roleId) => rolePermissionsService.getPermissionsByRoleId(roleId)))
+  const permissions = await rolePermissionsService.getPermissionsByRoleIds(roleIds)
   res.send({
     User: user,
-    Permissions: permissions.flatMap((permission) => permission.Permissions)
+    Permissions: permissions
   })
 }

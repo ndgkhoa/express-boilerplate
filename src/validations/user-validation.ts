@@ -1,13 +1,13 @@
 import { z } from 'zod'
 
 import { Message } from '~/constants'
-import { objectId } from '~/validations/custom-validation'
+import { objectId } from '~/validations/mongo-validation'
 
 export const createUserSchema = {
   body: z.object({
     UserName: z.string().min(3, Message.USERNAME_TOO_SHORT),
     Email: z.string().email(Message.INVALID_EMAIL),
-    // Password: password,
+    // Password: z.string().min(6, Message.PASSWORD_TOO_SHORT),
     PhoneNumber: z.string().min(10, Message.INVALID_PHONE),
     FullName: z.string().min(3, Message.FULLNAME_TOO_SHORT)
   })

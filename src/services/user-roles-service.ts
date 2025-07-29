@@ -4,20 +4,6 @@ import { CreateUserRolesBody } from '~/validations'
 import { HttpStatusCode, Message } from '~/constants'
 import { roleService } from '~/services'
 
-export const createRolesForUser = async (userId: string, body: CreateUserRolesBody[]) => {
-  try {
-    return await UserRoles.insertMany(
-      body.map((item) => ({
-        UserId: userId,
-        RoleId: item
-      })),
-      { ordered: false }
-    )
-  } catch {
-    throw new ApiError(HttpStatusCode.CONFLICT, Message.CONFLICT)
-  }
-}
-
 export const getRolesByUserId = async (userId: string) => {
   const userRoles = await UserRoles.find({ UserId: userId })
   if (!userRoles) {
@@ -34,6 +20,20 @@ export const getRolesByUserId = async (userId: string) => {
       }
     })
   )
+}
+
+export const createUserRoles = async (userId: string, body: CreateUserRolesBody[]) => {
+  try {
+    return await UserRoles.insertMany(
+      body.map((item) => ({
+        UserId: userId,
+        RoleId: item
+      })),
+      { ordered: false }
+    )
+  } catch {
+    throw new ApiError(HttpStatusCode.CONFLICT, Message.CONFLICT)
+  }
 }
 
 export const deleteUserRoles = async (ids: string[]) => {

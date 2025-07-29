@@ -18,4 +18,4 @@ rolePermissionsSchema.index({ RoleId: 1, PermissionId: 1 }, { unique: true })
 
 rolePermissionsSchema.plugin(toJSON)
 
-export const RolePermissions = mongoose.model('RolePermissions', rolePermissionsSchema)
+export const RolePermissions = mongoose.model('RolePermissions', rolePermissionsSchema, 'role-permissions')

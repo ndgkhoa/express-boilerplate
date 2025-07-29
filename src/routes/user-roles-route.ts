@@ -5,7 +5,12 @@ import { authenticate, authorize } from '~/middlewares/auth'
 
 const router = express.Router()
 
-router.get('/get-user-roles', authenticate, authorize('USER_ROLES_MANAGE', 'R'), userRolesController.getUserRoles)
+router.get(
+  '/get-user-roles/:userId',
+  authenticate,
+  authorize('USER_ROLES_MANAGE', 'R'),
+  userRolesController.getUserRoles
+)
 router.post(
   '/create-user-roles/:userId',
   authenticate,

@@ -1,4 +1,5 @@
 export const Message = {
+  WELCOME: 'Hello World!',
   SUCCESS: 'Yêu cầu thành công.',
   CREATED: 'Tạo mới thành công.',
   UPDATED: 'Cập nhật thành công.',

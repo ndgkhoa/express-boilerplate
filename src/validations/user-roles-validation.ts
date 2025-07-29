@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { objectId } from '~/validations/custom-validation'
+import { objectId } from '~/validations/mongo-validation'
 
 export const getUserRoles = {
   query: z.object({

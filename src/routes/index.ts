@@ -22,6 +22,14 @@ apiRoutes.forEach(({ path, route }) => {
   router.use(path, route)
 })
 
+router.get('/api/health', (req, res) => {
+  res.status(HttpStatusCode.OK).json({
+    message: Message.WELCOME,
+    version: process.env.VERSION || '1.0.0',
+    environment: process.env.NODE_ENV || 'development'
+  })
+})
+
 router.all('*', (req, res, next) => {
   next(new ApiError(HttpStatusCode.NOT_FOUND, Message.ROUTE_NOT_FOUND))
 })

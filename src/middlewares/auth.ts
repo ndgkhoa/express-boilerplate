@@ -14,8 +14,8 @@ export const authorize = (permissionCode: string, action: ActionType) => {
     const userRoles = await userRolesService.getRolesByUserId(token.sub)
     const roleIds = userRoles.map((role) => role.RoleId)
     const permission = await permissionService.getPermissionByPermissionCode(permissionCode)
-    const isAuthorized = await rolePermissionsService.checkRoleHasPermission(roleIds, permission.id, action)
-    if (!isAuthorized) {
+    const allowed = await rolePermissionsService.checkPermissionByRoleIds(roleIds, permission.id, action)
+    if (!allowed) {
       return sendResponse(res, HttpStatusCode.FORBIDDEN, null, Message.FORBIDDEN)
     }
     next()
