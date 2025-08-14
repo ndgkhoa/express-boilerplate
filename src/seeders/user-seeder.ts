@@ -18,9 +18,9 @@ const seedUsers = async () => {
   try {
     await User.deleteMany()
     await User.insertMany(users)
-    logger.info('🌱 User seeding successfully')
+    logger.info('User seeding successfully')
   } catch (error) {
-    logger.error('❌ Error seeding:', error)
+    logger.error('Error seeding:', error)
   }
 }
 

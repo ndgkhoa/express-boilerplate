@@ -29,9 +29,9 @@ const seedRolePermissions = async () => {
     }
 
     await RolePermissions.insertMany(rolePermissions)
-    logger.info('🌱 RolePermission seeding successfully')
+    logger.info('RolePermission seeding successfully')
   } catch (error) {
-    logger.error('❌ Error seeding', error)
+    logger.error('Error seeding', error)
   }
 }
 

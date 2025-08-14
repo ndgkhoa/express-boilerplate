@@ -34,7 +34,13 @@ $ pnpm run build
 $ pnpm start
 ```
 
-## Database seed
+## Generate RSA Keys
+
+```bash
+$ pnpm keys
+```
+
+## Generate Database
 
 ```bash
 $ pnpm seed

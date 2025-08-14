@@ -11,9 +11,9 @@ import { HttpStatusCode, Message } from '~/constants'
 const router = express.Router()
 
 const apiRoutes = [
-  { path: '/api/user', route: userRoute },
-  { path: '/api/role', route: roleRoute },
-  { path: '/api/permission', route: permisstionRoute },
+  { path: '/api/users', route: userRoute },
+  { path: '/api/roles', route: roleRoute },
+  { path: '/api/permissions', route: permisstionRoute },
   { path: '/api/role-permissions', route: rolePermisstionsRoute },
   { path: '/api/user-roles', route: userRolesRoute }
 ]

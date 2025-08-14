@@ -36,9 +36,9 @@ const seedPermissions = async () => {
   try {
     await Permission.deleteMany()
     await Permission.insertMany(permissions)
-    logger.info('🌱 Permission seeding successfully')
+    logger.info('Permission seeding successfully')
   } catch (error) {
-    logger.error('❌ Error seeding', error)
+    logger.error('Error seeding', error)
   }
 }
 

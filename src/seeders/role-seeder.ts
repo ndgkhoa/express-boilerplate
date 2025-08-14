@@ -13,9 +13,9 @@ const seedRoles = async () => {
   try {
     await Role.deleteMany()
     await Role.insertMany(roles)
-    logger.info('🌱 Role seeding successfully')
+    logger.info('Role seeding successfully')
   } catch (error) {
-    logger.error('❌ Error seeding', error)
+    logger.error('Error seeding', error)
   }
 }
 
